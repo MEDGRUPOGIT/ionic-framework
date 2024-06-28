@@ -1,6 +1,6 @@
 ion-checkbox {
   --background: transparent;
-  --border-color: hsl(var(--med-color-brand-4));
+  --border-color: hsl(var(--med-color-neutral-35));
   --border-color-checked: hsl(var(--med-color-brand-4));
   --background-checked: hsl(var(--med-color-brand-4));
   --checkmark-color: hsl(var(--med-color-neutral-2));
@@ -10,7 +10,7 @@ ion-checkbox {
 
   &:hover,
   &:focus {
-    --border-color: hsl(var(--med-color-brand-5));
+    --border-color: hsl(var(--med-color-neutral-35));
     --border-color-checked: hsl(var(--med-color-brand-5));
     --background-checked: hsl(var(--med-color-brand-5));
   }
