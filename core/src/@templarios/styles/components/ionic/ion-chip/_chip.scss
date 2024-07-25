@@ -354,7 +354,9 @@ ion-chip {
     --icon-background: transparent;
   }
 
-  &[active] {
+  &[active],
+  &.ion-focused,
+  &.ion-activated {
     --border-color: hsl(var(--med-color-neutral-7));
     --background: hsl(var(--med-color-neutral-7));
     --color: hsl(var(--med-color-neutral-2));
