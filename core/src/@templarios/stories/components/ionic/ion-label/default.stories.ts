@@ -7,7 +7,7 @@ export default {
   decorators: [withDesign],
 };
 
-const Template = ({ 'ds-color': dsColor, token, tokenMd, tokenSm, slot }) => {
+const Template = ({ 'ds-color': dsColor, token, 'token-md': tokenMd, 'token-sm': tokenSm, slot }) => {
   return html`
     <ion-app>
       <ion-content>
