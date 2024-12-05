@@ -14,6 +14,32 @@ ion-label {
       }
     }
   }
+
+  @include breakpoint-down('md') {
+    @each $type-value,
+    $type in $tp-type {
+      &[token-md='#{$type-value}'] {
+
+        @each $property,
+        $value in $type {
+          #{$property}: #{$value};
+        }
+      }
+    }
+  }
+
+  @include breakpoint-down('sm') {
+    @each $type-value,
+    $type in $tp-type {
+      &[token-sm='#{$type-value}'] {
+
+        @each $property,
+        $value in $type {
+          #{$property}: #{$value};
+        }
+      }
+    }
+  }
 }
 
 //

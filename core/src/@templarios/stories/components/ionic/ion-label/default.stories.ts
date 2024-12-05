@@ -7,11 +7,11 @@ export default {
   decorators: [withDesign],
 };
 
-const Template = ({ 'ds-color': dsColor, token, slot }) => {
+const Template = ({ 'ds-color': dsColor, token, tokenMd, tokenSm, slot }) => {
   return html`
     <ion-app>
       <ion-content>
-        <ion-label ds-color=${dsColor} token=${token}> ${slot} </ion-label>
+        <ion-label ds-color=${dsColor} token=${token} token-md=${tokenMd} token-sm=${tokenSm}> ${slot} </ion-label>
       </ion-content>
     </ion-app>
   `;
@@ -39,6 +39,26 @@ Default.argTypes = {
     options: [undefined, ...Object.values(MedType)],
     control: { type: 'select' },
     description: 'Define o token do componente.',
+    defaultValue: undefined,
+    table: {
+      type: { summary: Object.values(MedType).join(' |') },
+      defaultValue: { summary: 'undefined' },
+    },
+  },
+  'token-md': {
+    options: [undefined, ...Object.values(MedType)],
+    control: { type: 'select' },
+    description: 'Define o token do componente em breakpoints abaixo de 768px.',
+    defaultValue: undefined,
+    table: {
+      type: { summary: Object.values(MedType).join(' |') },
+      defaultValue: { summary: 'undefined' },
+    },
+  },
+  'token-sm': {
+    options: [undefined, ...Object.values(MedType)],
+    control: { type: 'select' },
+    description: 'Define o token do componente em breakpoints abaixo de 576px.',
     defaultValue: undefined,
     table: {
       type: { summary: Object.values(MedType).join(' |') },
