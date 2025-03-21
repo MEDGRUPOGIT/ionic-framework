@@ -5,7 +5,7 @@ import { generateMedColor } from '../../../../@templarios/utilities/color';
 @Component({
   tag: 'med-chart-bar-horizontal',
   styleUrl: 'med-chart-bar-horizontal.scss',
-  shadow: true,
+  scoped: true,
 })
 export class MedChartBarHorizontal {
 

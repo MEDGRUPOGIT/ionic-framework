@@ -30,12 +30,12 @@
 
   &__progress {
     background: var(--progress-background);
-    transform: translate(calc(var(--progress) * 1%), -50%);
+    transform: translate(calc(var(--progress) * 1%));
     position: absolute;
     right: 0;
     left: 0;
-    animation: start 300ms linear;
-    top: 50%;
+    animation: start 300ms linear forwards;
+    top: 0;
   }
 
   &__track {
