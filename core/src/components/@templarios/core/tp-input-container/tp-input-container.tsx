@@ -28,6 +28,12 @@ export class TpInputContainer {
    */
   readonly selectAndPopoverDiffWidth: number = 2;
 
+   /**
+   * Tempo de renderização do popover
+   */
+
+   timePopover: any;
+
   /**
    * Referência ao componente no DOM
    */
@@ -83,6 +89,12 @@ export class TpInputContainer {
   /**
    * todo
    */
+  @Prop({ reflect: true }) showPopoverWithDelay? = false;
+
+
+  /**
+   * todo
+   */
   @Prop({ reflect: true }) hasIcon?: 'start' | 'end' | 'both';
 
   @Listen('click', { target: 'body' })
@@ -107,6 +119,10 @@ export class TpInputContainer {
 
     if (shouldOpenOverlay) {
       ionSelect.open(e);
+    }
+
+    if(this.showPopoverWithDelay) {
+      this.timeDisabledInputContainer();
     }
   }
 
@@ -168,6 +184,10 @@ export class TpInputContainer {
   @Listen('ionPopoverWillDismiss', { target: 'body' })
   unsetClikedState() {
     this.selectWithPopoverClicked = false;
+
+    if(this.showPopoverWithDelay) {
+      this.timeDisabledInputContainer();
+    }
   }
 
   componentDidLoad() {
@@ -182,6 +202,31 @@ export class TpInputContainer {
         ionSelect.interfaceOptions = { cssClass: 'tp-hide' };
       }
     }
+  }
+
+  disconnectedCallback() {
+    if (this.timePopover) {
+      clearTimeout(this.timePopover);
+    }
+  }
+
+  timeDisabledInputContainer() {
+    const tpInputContainer = this.host;
+    const ionPopover = document.querySelector('ion-popover') as HTMLElement;
+
+    tpInputContainer.style.pointerEvents = 'none';
+
+    if(ionPopover) {
+      ionPopover.style.pointerEvents = 'none';
+    }
+
+    this.timePopover = setTimeout(() => {
+      if(ionPopover) {
+        ionPopover.style.pointerEvents = 'auto';
+      }
+
+      tpInputContainer.style.pointerEvents = 'auto';
+    }, 450);
   }
 
   isLandscape(): boolean {

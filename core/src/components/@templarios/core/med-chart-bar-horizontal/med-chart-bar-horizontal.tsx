@@ -64,7 +64,7 @@ export class MedChartBarHorizontal {
         aria-valuemax="1"
         role="progressbar">
         <div class="med-chart-bar-horizontal__container">
-          <div class="med-chart-bar-horizontal__progress" style={{ '--progress': `${progressWidth === 0 ? -99 : progressWidth - 100}` }}></div>
+          <div class={{'med-chart-bar-horizontal__progress': true, 'med-chart-bar-horizontal__progress--hidden': progressWidth === 0}} style={{ '--progress': `${progressWidth === 0 ? -99 : progressWidth - 100}` }}></div>
           <div class="med-chart-bar-horizontal__track"></div>
         </div>
         {label && <med-type class="med-chart-bar-horizontal__label">{!hideValue ? `${value}%` : ''}{labelContent}</med-type>}
