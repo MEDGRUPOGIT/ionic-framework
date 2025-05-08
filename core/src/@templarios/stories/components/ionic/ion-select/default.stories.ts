@@ -13,6 +13,7 @@ const Template = ({
   disabled,
   state,
   inverted,
+  "show-popover-with-delay": showPopoverWithDelay
 }) => {
   const interfaceOpts = { cssClass: "tp-popover" };
 
@@ -33,6 +34,7 @@ const Template = ({
             .disabled=${disabled}
             .inverted=${inverted}
             state=${state}
+            show-popover-with-delay=${showPopoverWithDelay}
             has-icon="end"
           >
             <ion-select
@@ -165,6 +167,16 @@ Default.argTypes = {
     table: {
       type: { summary: "attention | caution | warning | success | undefined" },
       defaultValue: { summary: "undefined" },
+    },
+  },
+  showPopoverWithDelay: {
+    control: { type: "boolean" },
+    description:
+      "Define um delay para o tempo de renderização do popover",
+    defaultValue: false,
+    table: {
+      type: { summary: "boolean" },
+      defaultValue: { summary: false },
     },
   },
 };

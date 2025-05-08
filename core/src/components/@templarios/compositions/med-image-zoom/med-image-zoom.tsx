@@ -157,12 +157,6 @@ export class MedImageZoom {
           <button class="zoom-button" onClick={() => this.zoomOut()}>
             <ion-icon class="med-icon" name="med-menos"></ion-icon>
           </button>
-          <button
-            class="zoom-button zoom-button--close"
-            onClick={() => this.dismiss()}
-          >
-            <ion-icon class="med-icon" name="med-fechar"></ion-icon>
-          </button>
         </div>
       </Host>
     );
