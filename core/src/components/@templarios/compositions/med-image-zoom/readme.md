@@ -7,13 +7,15 @@
 
 ## Properties
 
-| Property            | Attribute             | Description | Type                  | Default     |
-| ------------------- | --------------------- | ----------- | --------------------- | ----------- |
-| `imagens`           | `imagens`             | todo        | `any`                 | `[]`        |
-| `initialSlide`      | `initial-slide`       | todo        | `number \| undefined` | `0`         |
-| `marcaAguaInferior` | `marca-agua-inferior` | todo        | `string \| undefined` | `undefined` |
-| `marcaAguaSuperior` | `marca-agua-superior` | todo        | `string \| undefined` | `undefined` |
-| `titulo`            | `titulo`              | todo        | `string \| undefined` | `undefined` |
+| Property            | Attribute             | Description                      | Type                  | Default     |
+| ------------------- | --------------------- | -------------------------------- | --------------------- | ----------- |
+| `imagens`           | `imagens`             | todo                             | `any`                 | `[]`        |
+| `initialSlide`      | `initial-slide`       | todo                             | `number \| undefined` | `0`         |
+| `marcaAguaInferior` | `marca-agua-inferior` | todo                             | `string \| undefined` | `undefined` |
+| `marcaAguaSuperior` | `marca-agua-superior` | todo                             | `string \| undefined` | `undefined` |
+| `maxRatioDesktop`   | `max-ratio-desktop`   | Zoom maximo na imagem em desktop | `number`              | `2`         |
+| `maxRatioMobile`    | `max-ratio-mobile`    | Zoom maximo na imagem em Mobile  | `number`              | `4`         |
+| `titulo`            | `titulo`              | todo                             | `string \| undefined` | `undefined` |
 
 
 ## Dependencies

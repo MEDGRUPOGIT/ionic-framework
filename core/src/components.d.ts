@@ -23,6 +23,7 @@ import { MedTema } from "@templarios/interfaces/themes.interface";
 import { MedTypeTag, MedTypeToken } from "@templarios/types/type.type";
 import { TpAccordionGroupChangeEventDetail } from "./components/@templarios/core/tp-accordion-group/tp-accordion-group-interface";
 import { TpChartBarItem } from "@templarios/interfaces/chart-bar.interface";
+import { TpSelectDropdownOption } from "./components/@templarios/core/tp-select-dropdown/utils/select-dropdown.types";
 export namespace Components {
     interface AjudaModal {
     }
@@ -601,6 +602,10 @@ export namespace Components {
           * If you want to disable the content scrolling in the Y axis, set this property to `false`.
          */
         "scrollY": boolean;
+        /**
+          * Show the scroll bar below breakpoint sm (576px)
+         */
+        "showScrollBarMobile": boolean;
     }
     interface IonDatetime {
         /**
@@ -2826,6 +2831,10 @@ export namespace Components {
         /**
           * todo
          */
+        "canClose": boolean;
+        /**
+          * todo
+         */
         "cancelText"?: string;
         /**
           * todo
@@ -2906,6 +2915,10 @@ export namespace Components {
         /**
           * todo
          */
+        "mostrarProgressBar": boolean;
+        /**
+          * todo
+         */
         "permiteDesmarcar": boolean;
         /**
           * todo
@@ -2964,6 +2977,10 @@ export namespace Components {
         /**
           * todo
          */
+        "mostrarProgressBar": boolean;
+        /**
+          * todo
+         */
         "permiteDesmarcar": boolean;
         /**
           * todo
@@ -3019,6 +3036,10 @@ export namespace Components {
           * todo
          */
         "mostraResposta": boolean;
+        /**
+          * todo
+         */
+        "mostrarProgressBar": boolean;
         /**
           * todo
          */
@@ -3196,6 +3217,10 @@ export namespace Components {
           * Define a estilização do componente
          */
         "isFlex": boolean;
+        /**
+          * Define a estilização do componente
+         */
+        "justifyCenter": boolean;
     }
     interface MedChartBar {
         /**
@@ -3487,6 +3512,10 @@ export namespace Components {
         /**
           * todo
          */
+        "step": boolean;
+        /**
+          * todo
+         */
         "value": MedFontSize;
     }
     interface MedHeader {
@@ -3509,6 +3538,14 @@ export namespace Components {
           * todo
          */
         "marcaAguaSuperior"?: string;
+        /**
+          * Zoom maximo na imagem em desktop
+         */
+        "maxRatioDesktop": number;
+        /**
+          * Zoom maximo na imagem em Mobile
+         */
+        "maxRatioMobile": number;
         /**
           * todo
          */
@@ -4131,6 +4168,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * todo
+         */
+        "dsColor"?: MedColor;
+        /**
           * The mode determines which platform styles to use.
          */
         "mode"?: "ios" | "md";
@@ -4236,7 +4277,7 @@ export namespace Components {
         /**
           * todo
          */
-        "dsName"?: 'secondary';
+        "dsName"?: "secondary";
         /**
           * todo
          */
@@ -4244,20 +4285,50 @@ export namespace Components {
         /**
           * todo
          */
-        "hasButton"?: 'start' | 'end' | 'both';
+        "hasButton"?: "start" | "end" | "both";
         /**
           * todo
          */
-        "hasIcon"?: 'start' | 'end' | 'both';
+        "hasIcon"?: "start" | "end" | "both";
         /**
           * todo
          */
         "inverted": boolean;
+        /**
+          * todo
+         */
+        "showPopoverWithDelay"?: boolean | undefined;
     }
     interface TpLoader {
         "dsColor"?: MedColor;
         "dsName"?: "secondary";
         "fixed": boolean;
+    }
+    interface TpSelectDropdown {
+        /**
+          * Define a variação de cor do componente.
+         */
+        "color"?: MedColor;
+        /**
+          * Define o nome do componente, agrupando as opções.
+         */
+        "name": string;
+        /**
+          * Define se o componente representa valores numéricos.
+         */
+        "numeric": boolean;
+        /**
+          * Define as opções de seleção do componente.
+         */
+        "options": TpSelectDropdownOption[];
+        /**
+          * Define o placeholder do componente.
+         */
+        "placeholder"?: string;
+        /**
+          * Define o valor do componente.
+         */
+        "value": string | number | null;
     }
     interface TutorialModal {
     }
@@ -4511,6 +4582,10 @@ export interface MedTooltipCustomEvent<T> extends CustomEvent<T> {
 export interface TpAccordionGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTpAccordionGroupElement;
+}
+export interface TpSelectDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTpSelectDropdownElement;
 }
 declare global {
     interface HTMLAjudaModalElement extends Components.AjudaModal, HTMLStencilElement {
@@ -5605,6 +5680,12 @@ declare global {
         prototype: HTMLTpLoaderElement;
         new (): HTMLTpLoaderElement;
     };
+    interface HTMLTpSelectDropdownElement extends Components.TpSelectDropdown, HTMLStencilElement {
+    }
+    var HTMLTpSelectDropdownElement: {
+        prototype: HTMLTpSelectDropdownElement;
+        new (): HTMLTpSelectDropdownElement;
+    };
     interface HTMLTutorialModalElement extends Components.TutorialModal, HTMLStencilElement {
     }
     var HTMLTutorialModalElement: {
@@ -5800,6 +5881,7 @@ declare global {
         "tp-chart-bar": HTMLTpChartBarElement;
         "tp-input-container": HTMLTpInputContainerElement;
         "tp-loader": HTMLTpLoaderElement;
+        "tp-select-dropdown": HTMLTpSelectDropdownElement;
         "tutorial-modal": HTMLTutorialModalElement;
         "unidades-modal": HTMLUnidadesModalElement;
     }
@@ -6390,6 +6472,10 @@ declare namespace LocalJSX {
           * If you want to disable the content scrolling in the Y axis, set this property to `false`.
          */
         "scrollY"?: boolean;
+        /**
+          * Show the scroll bar below breakpoint sm (576px)
+         */
+        "showScrollBarMobile"?: boolean;
     }
     interface IonDatetime {
         /**
@@ -8641,6 +8727,10 @@ declare namespace LocalJSX {
         /**
           * todo
          */
+        "canClose"?: boolean;
+        /**
+          * todo
+         */
         "cancelText"?: string;
         /**
           * todo
@@ -8721,6 +8811,10 @@ declare namespace LocalJSX {
         /**
           * todo
          */
+        "mostrarProgressBar"?: boolean;
+        /**
+          * todo
+         */
         "permiteDesmarcar"?: boolean;
         /**
           * todo
@@ -8776,6 +8870,10 @@ declare namespace LocalJSX {
           * todo
          */
         "mostraResposta": boolean;
+        /**
+          * todo
+         */
+        "mostrarProgressBar"?: boolean;
         /**
           * todo
          */
@@ -8846,6 +8944,10 @@ declare namespace LocalJSX {
           * todo
          */
         "mostraResposta": boolean;
+        /**
+          * todo
+         */
+        "mostrarProgressBar"?: boolean;
         /**
           * todo
          */
@@ -9050,6 +9152,10 @@ declare namespace LocalJSX {
           * Define a estilização do componente
          */
         "isFlex"?: boolean;
+        /**
+          * Define a estilização do componente
+         */
+        "justifyCenter"?: boolean;
     }
     interface MedChartBar {
         /**
@@ -9369,6 +9475,10 @@ declare namespace LocalJSX {
         /**
           * todo
          */
+        "step"?: boolean;
+        /**
+          * todo
+         */
         "value"?: MedFontSize;
     }
     interface MedHeader {
@@ -9395,6 +9505,14 @@ declare namespace LocalJSX {
           * todo
          */
         "marcaAguaSuperior"?: string;
+        /**
+          * Zoom maximo na imagem em desktop
+         */
+        "maxRatioDesktop"?: number;
+        /**
+          * Zoom maximo na imagem em Mobile
+         */
+        "maxRatioMobile"?: number;
         /**
           * todo
          */
@@ -10044,6 +10162,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * todo
+         */
+        "dsColor"?: MedColor;
+        /**
           * The mode determines which platform styles to use.
          */
         "mode"?: "ios" | "md";
@@ -10152,7 +10274,7 @@ declare namespace LocalJSX {
         /**
           * todo
          */
-        "dsName"?: 'secondary';
+        "dsName"?: "secondary";
         /**
           * todo
          */
@@ -10160,20 +10282,54 @@ declare namespace LocalJSX {
         /**
           * todo
          */
-        "hasButton"?: 'start' | 'end' | 'both';
+        "hasButton"?: "start" | "end" | "both";
         /**
           * todo
          */
-        "hasIcon"?: 'start' | 'end' | 'both';
+        "hasIcon"?: "start" | "end" | "both";
         /**
           * todo
          */
         "inverted"?: boolean;
+        /**
+          * todo
+         */
+        "showPopoverWithDelay"?: boolean | undefined;
     }
     interface TpLoader {
         "dsColor"?: MedColor;
         "dsName"?: "secondary";
         "fixed"?: boolean;
+    }
+    interface TpSelectDropdown {
+        /**
+          * Define a variação de cor do componente.
+         */
+        "color"?: MedColor;
+        /**
+          * Define o nome do componente, agrupando as opções.
+         */
+        "name": string;
+        /**
+          * Define se o componente representa valores numéricos.
+         */
+        "numeric"?: boolean;
+        /**
+          * Evento emitido quando há mudança no valor do componente.
+         */
+        "onValueChange"?: (event: TpSelectDropdownCustomEvent<string | number>) => void;
+        /**
+          * Define as opções de seleção do componente.
+         */
+        "options"?: TpSelectDropdownOption[];
+        /**
+          * Define o placeholder do componente.
+         */
+        "placeholder"?: string;
+        /**
+          * Define o valor do componente.
+         */
+        "value"?: string | number | null;
     }
     interface TutorialModal {
     }
@@ -10362,6 +10518,7 @@ declare namespace LocalJSX {
         "tp-chart-bar": TpChartBar;
         "tp-input-container": TpInputContainer;
         "tp-loader": TpLoader;
+        "tp-select-dropdown": TpSelectDropdown;
         "tutorial-modal": TutorialModal;
         "unidades-modal": UnidadesModal;
     }
@@ -10552,6 +10709,7 @@ declare module "@stencil/core" {
             "tp-chart-bar": LocalJSX.TpChartBar & JSXBase.HTMLAttributes<HTMLTpChartBarElement>;
             "tp-input-container": LocalJSX.TpInputContainer & JSXBase.HTMLAttributes<HTMLTpInputContainerElement>;
             "tp-loader": LocalJSX.TpLoader & JSXBase.HTMLAttributes<HTMLTpLoaderElement>;
+            "tp-select-dropdown": LocalJSX.TpSelectDropdown & JSXBase.HTMLAttributes<HTMLTpSelectDropdownElement>;
             "tutorial-modal": LocalJSX.TutorialModal & JSXBase.HTMLAttributes<HTMLTutorialModalElement>;
             "unidades-modal": LocalJSX.UnidadesModal & JSXBase.HTMLAttributes<HTMLUnidadesModalElement>;
         }

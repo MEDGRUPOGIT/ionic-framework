@@ -314,6 +314,7 @@ ion-content,prop,fullscreen,boolean,false,false,false
 ion-content,prop,scrollEvents,boolean,false,false,false
 ion-content,prop,scrollX,boolean,false,false,false
 ion-content,prop,scrollY,boolean,true,false,false
+ion-content,prop,showScrollBarMobile,boolean,false,false,true
 ion-content,method,getScrollElement,getScrollElement() => Promise<HTMLElement>
 ion-content,method,scrollByPoint,scrollByPoint(x: number, y: number, duration: number) => Promise<void>
 ion-content,method,scrollToBottom,scrollToBottom(duration?: number) => Promise<void>
@@ -1411,6 +1412,7 @@ med-agrupador,prop,labelDefault,string,'Expandir a lista',false,true
 med-agrupador,method,toggle,toggle(event?: Event) => Promise<void>
 
 med-alert,scoped
+med-alert,prop,canClose,boolean,true,false,true
 med-alert,prop,cancelText,string | undefined,undefined,false,true
 med-alert,prop,confirmText,string | undefined,undefined,false,true
 med-alert,prop,disableSanitize,boolean,false,false,true
@@ -1428,12 +1430,13 @@ med-alternativas,prop,alternativaSelecionada,string,undefined,true,true
 med-alternativas,prop,alternativas,any,[],false,false
 med-alternativas,prop,dsColor,string | undefined,undefined,false,false
 med-alternativas,prop,dsSkinConfig,any,undefined,true,false
-med-alternativas,prop,keyAlternativa,string,'Alternativa',false,false
-med-alternativas,prop,keyEnunciado,string,'Enunciado',false,false
-med-alternativas,prop,keyImagem,string,'Imagem',false,false
-med-alternativas,prop,keyPorcentagem,string,'Porcentagem',false,false
-med-alternativas,prop,keyRiscada,string,'Riscada',false,false
+med-alternativas,prop,keyAlternativa,string,"Alternativa",false,false
+med-alternativas,prop,keyEnunciado,string,"Enunciado",false,false
+med-alternativas,prop,keyImagem,string,"Imagem",false,false
+med-alternativas,prop,keyPorcentagem,string,"Porcentagem",false,false
+med-alternativas,prop,keyRiscada,string,"Riscada",false,false
 med-alternativas,prop,mostraResposta,boolean,undefined,true,true
+med-alternativas,prop,mostrarProgressBar,boolean,true,false,true
 med-alternativas,prop,permiteDesmarcar,boolean,false,false,false
 med-alternativas,prop,permiteRiscar,boolean,true,false,false
 med-alternativas,prop,respostaCorreta,string,undefined,true,true
@@ -1450,6 +1453,7 @@ med-alternativas-a,prop,keyImagem,string,'Imagem',false,false
 med-alternativas-a,prop,keyPorcentagem,string,'Porcentagem',false,false
 med-alternativas-a,prop,keyRiscada,string,'Riscada',false,false
 med-alternativas-a,prop,mostraResposta,boolean,undefined,true,true
+med-alternativas-a,prop,mostrarProgressBar,boolean,true,false,true
 med-alternativas-a,prop,permiteDesmarcar,boolean,false,false,false
 med-alternativas-a,prop,permiteRiscar,boolean,true,false,false
 med-alternativas-a,prop,respostaCorreta,string,undefined,true,true
@@ -1469,6 +1473,7 @@ med-alternativas-b,prop,keyImagem,string,'Imagem',false,false
 med-alternativas-b,prop,keyPorcentagem,string,'Porcentagem',false,false
 med-alternativas-b,prop,keyRiscada,string,'Riscada',false,false
 med-alternativas-b,prop,mostraResposta,boolean,undefined,true,true
+med-alternativas-b,prop,mostrarProgressBar,boolean,true,false,true
 med-alternativas-b,prop,permiteDesmarcar,boolean,false,false,false
 med-alternativas-b,prop,permiteRiscar,boolean,true,false,false
 med-alternativas-b,prop,respostaCorreta,string,undefined,true,true
@@ -1536,6 +1541,7 @@ med-cartao-resposta-item,prop,impressa,boolean,false,false,true
 
 med-cartao-resposta-lista,shadow
 med-cartao-resposta-lista,prop,isFlex,boolean,false,false,true
+med-cartao-resposta-lista,prop,justifyCenter,boolean,false,false,true
 
 med-chart-bar,shadow
 med-chart-bar,prop,dsColor,string | undefined,undefined,false,true
@@ -1544,7 +1550,7 @@ med-chart-bar,prop,noLabel,boolean,false,false,true
 med-chart-bar,prop,value,number,0,false,true
 med-chart-bar,prop,width,number,32,false,true
 
-med-chart-bar-horizontal,shadow
+med-chart-bar-horizontal,scoped
 med-chart-bar-horizontal,prop,dsColor,string | undefined,undefined,false,true
 med-chart-bar-horizontal,prop,dsSize,"md" | undefined,undefined,false,false
 med-chart-bar-horizontal,prop,hideValue,boolean,false,false,true
@@ -1628,7 +1634,7 @@ med-dropdown,prop,dsName,"secondary" | undefined,undefined,false,true
 
 med-dropdown-container,scoped
 
-med-enunciado,shadow
+med-enunciado,scoped
 med-enunciado,prop,content,string | undefined,undefined,false,true
 med-enunciado,prop,dsName,"skin" | undefined,undefined,false,true
 med-enunciado,prop,imagens,string | string[],undefined,true,true
@@ -1640,6 +1646,7 @@ med-enunciado-discursiva,event,medGalleryRequest,string,true
 
 med-font-zoom,scoped
 med-font-zoom,prop,emitter,{ emit: (value: MedFontSize) => void; },undefined,true,false
+med-font-zoom,prop,step,boolean,false,false,true
 med-font-zoom,prop,value,MedFontSize.MD | MedFontSize.SM | MedFontSize.XS | MedFontSize.XXS | MedFontSize.XXXS,MedFontSize.XS,false,false
 
 med-header,shadow
@@ -1650,6 +1657,8 @@ med-image-zoom,prop,imagens,any,[],false,true
 med-image-zoom,prop,initialSlide,number | undefined,0,false,true
 med-image-zoom,prop,marcaAguaInferior,string | undefined,undefined,false,true
 med-image-zoom,prop,marcaAguaSuperior,string | undefined,undefined,false,true
+med-image-zoom,prop,maxRatioDesktop,number,2,false,true
+med-image-zoom,prop,maxRatioMobile,number,4,false,true
 med-image-zoom,prop,titulo,string | undefined,undefined,false,true
 
 med-input,shadow
@@ -1886,6 +1895,7 @@ text-area-modal,scoped
 
 tp-accordion,shadow
 tp-accordion,prop,disabled,boolean,false,false,false
+tp-accordion,prop,dsColor,string | undefined,undefined,false,true
 tp-accordion,prop,mode,"ios" | "md",undefined,false,false
 tp-accordion,prop,readonly,boolean,false,false,false
 tp-accordion,prop,toggleIcon,string,chevronDown,false,false
@@ -1930,11 +1940,22 @@ tp-input-container,prop,feedback,boolean,false,false,true
 tp-input-container,prop,hasButton,"both" | "end" | "start" | undefined,undefined,false,true
 tp-input-container,prop,hasIcon,"both" | "end" | "start" | undefined,undefined,false,true
 tp-input-container,prop,inverted,boolean,false,false,true
+tp-input-container,prop,showPopoverWithDelay,boolean | undefined,false,false,true
 
 tp-loader,scoped
 tp-loader,prop,dsColor,string | undefined,undefined,false,true
 tp-loader,prop,dsName,"secondary" | undefined,undefined,false,true
 tp-loader,prop,fixed,boolean,false,false,true
+
+tp-select-dropdown,scoped
+tp-select-dropdown,prop,color,string | undefined,undefined,false,true
+tp-select-dropdown,prop,name,string,undefined,true,true
+tp-select-dropdown,prop,numeric,boolean,false,false,true
+tp-select-dropdown,prop,options,TpSelectDropdownOption[],[],false,false
+tp-select-dropdown,prop,placeholder,string | undefined,undefined,false,true
+tp-select-dropdown,prop,value,null | number | string,null,false,true
+tp-select-dropdown,event,valueChange,number | string,true
+tp-select-dropdown,css-prop,--dropdown-max-height
 
 tutorial-modal,scoped
 

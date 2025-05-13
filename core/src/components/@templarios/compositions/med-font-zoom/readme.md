@@ -10,6 +10,7 @@
 | Property               | Attribute | Description | Type                                                                                        | Default          |
 | ---------------------- | --------- | ----------- | ------------------------------------------------------------------------------------------- | ---------------- |
 | `emitter` _(required)_ | --        | todo        | `{ emit: (value: MedFontSize) => void; }`                                                   | `undefined`      |
+| `step`                 | `step`    | todo        | `boolean`                                                                                   | `false`          |
 | `value`                | `value`   | todo        | `MedFontSize.MD \| MedFontSize.SM \| MedFontSize.XS \| MedFontSize.XXS \| MedFontSize.XXXS` | `MedFontSize.XS` |
 
 

@@ -320,6 +320,7 @@ export default defineComponent({
  - [simulado-modal](../@templarios/ionic-1-migracao/duvidas-academicas/simulado-modal)
  - [text-area-modal](../@templarios/ionic-1-migracao/duvidas-academicas/text-area-modal)
  - [tp-chart-bar](../@templarios/core/tp-chart-bar)
+ - [tp-select-dropdown](../@templarios/core/tp-select-dropdown)
  - [tutorial-modal](../@templarios/ionic-1-migracao/simulados/tutorial-modal)
  - [unidades-modal](../@templarios/ionic-1-migracao/simulados/unidades-modal)
 
@@ -343,6 +344,7 @@ graph TD;
   simulado-modal --> ion-label
   text-area-modal --> ion-label
   tp-chart-bar --> ion-label
+  tp-select-dropdown --> ion-label
   tutorial-modal --> ion-label
   unidades-modal --> ion-label
   style ion-label fill:#f9f,stroke:#333,stroke-width:4px

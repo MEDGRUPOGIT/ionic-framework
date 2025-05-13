@@ -168,6 +168,7 @@ export const DIRECTIVES = [
   d.TpChartBar,
   d.TpInputContainer,
   d.TpLoader,
+  d.TpSelectDropdown,
   d.TutorialModal,
   d.UnidadesModal
 ];

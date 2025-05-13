@@ -9,6 +9,7 @@
 
 | Property          | Attribute          | Description | Type                  | Default     |
 | ----------------- | ------------------ | ----------- | --------------------- | ----------- |
+| `canClose`        | `can-close`        | todo        | `boolean`             | `true`      |
 | `cancelText`      | `cancel-text`      | todo        | `string \| undefined` | `undefined` |
 | `confirmText`     | `confirm-text`     | todo        | `string \| undefined` | `undefined` |
 | `disableSanitize` | `disable-sanitize` | todo        | `boolean`             | `false`     |

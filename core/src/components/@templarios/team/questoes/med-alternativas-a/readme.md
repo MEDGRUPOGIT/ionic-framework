@@ -20,6 +20,7 @@
 | `keyPorcentagem`                      | `key-porcentagem`         | todo        | `string`              | `'Porcentagem'` |
 | `keyRiscada`                          | `key-riscada`             | todo        | `string`              | `'Riscada'`     |
 | `mostraResposta` _(required)_         | `mostra-resposta`         | todo        | `boolean`             | `undefined`     |
+| `mostrarProgressBar`                  | `mostrar-progress-bar`    | todo        | `boolean`             | `true`          |
 | `permiteDesmarcar`                    | `permite-desmarcar`       | todo        | `boolean`             | `false`         |
 | `permiteRiscar`                       | `permite-riscar`          | todo        | `boolean`             | `true`          |
 | `respostaCorreta` _(required)_        | `resposta-correta`        | todo        | `string`              | `undefined`     |

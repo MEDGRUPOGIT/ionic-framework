@@ -13,12 +13,13 @@
 | `alternativas`                        | `alternativas`            | todo        | `any`                 | `[]`            |
 | `dsColor`                             | `ds-color`                | todo        | `string \| undefined` | `undefined`     |
 | `dsSkinConfig` _(required)_           | `ds-skin-config`          | todo        | `any`                 | `undefined`     |
-| `keyAlternativa`                      | `key-alternativa`         | todo        | `string`              | `'Alternativa'` |
-| `keyEnunciado`                        | `key-enunciado`           | todo        | `string`              | `'Enunciado'`   |
-| `keyImagem`                           | `key-imagem`              | todo        | `string`              | `'Imagem'`      |
-| `keyPorcentagem`                      | `key-porcentagem`         | todo        | `string`              | `'Porcentagem'` |
-| `keyRiscada`                          | `key-riscada`             | todo        | `string`              | `'Riscada'`     |
+| `keyAlternativa`                      | `key-alternativa`         | todo        | `string`              | `"Alternativa"` |
+| `keyEnunciado`                        | `key-enunciado`           | todo        | `string`              | `"Enunciado"`   |
+| `keyImagem`                           | `key-imagem`              | todo        | `string`              | `"Imagem"`      |
+| `keyPorcentagem`                      | `key-porcentagem`         | todo        | `string`              | `"Porcentagem"` |
+| `keyRiscada`                          | `key-riscada`             | todo        | `string`              | `"Riscada"`     |
 | `mostraResposta` _(required)_         | `mostra-resposta`         | todo        | `boolean`             | `undefined`     |
+| `mostrarProgressBar`                  | `mostrar-progress-bar`    | todo        | `boolean`             | `true`          |
 | `permiteDesmarcar`                    | `permite-desmarcar`       | todo        | `boolean`             | `false`         |
 | `permiteRiscar`                       | `permite-riscar`          | todo        | `boolean`             | `true`          |
 | `respostaCorreta` _(required)_        | `resposta-correta`        | todo        | `string`              | `undefined`     |

@@ -177,6 +177,7 @@ export const IonContent = /*@__PURE__*/ defineContainer<JSX.IonContent>('ion-con
   'scrollX',
   'scrollY',
   'scrollEvents',
+  'showScrollBarMobile',
   'ionScrollStart',
   'ionScroll',
   'ionScrollEnd'
@@ -872,7 +873,8 @@ export const MedAlert = /*@__PURE__*/ defineContainer<JSX.MedAlert>('med-alert',
   'message',
   'cancelText',
   'confirmText',
-  'disableSanitize'
+  'disableSanitize',
+  'canClose'
 ]);
 
 
@@ -897,7 +899,8 @@ export const MedAlternativas = /*@__PURE__*/ defineContainer<JSX.MedAlternativas
   'mostraResposta',
   'alternativaSelecionada',
   'permiteRiscar',
-  'permiteDesmarcar'
+  'permiteDesmarcar',
+  'mostrarProgressBar'
 ]);
 
 
@@ -916,6 +919,7 @@ export const MedAlternativasA = /*@__PURE__*/ defineContainer<JSX.MedAlternativa
   'alternativaSelecionada',
   'permiteRiscar',
   'permiteDesmarcar',
+  'mostrarProgressBar',
   'medChange',
   'medRiscada',
   'medGalleryRequest'
@@ -937,6 +941,7 @@ export const MedAlternativasB = /*@__PURE__*/ defineContainer<JSX.MedAlternativa
   'alternativaSelecionada',
   'permiteRiscar',
   'permiteDesmarcar',
+  'mostrarProgressBar',
   'medChange',
   'medRiscada',
   'medGalleryRequest'
@@ -1019,7 +1024,8 @@ export const MedCartaoRespostaItem = /*@__PURE__*/ defineContainer<JSX.MedCartao
 
 
 export const MedCartaoRespostaLista = /*@__PURE__*/ defineContainer<JSX.MedCartaoRespostaLista>('med-cartao-resposta-lista', [
-  'isFlex'
+  'isFlex',
+  'justifyCenter'
 ]);
 
 
@@ -1154,7 +1160,8 @@ export const MedEnunciadoDiscursiva = /*@__PURE__*/ defineContainer<JSX.MedEnunc
 
 export const MedFontZoom = /*@__PURE__*/ defineContainer<JSX.MedFontZoom>('med-font-zoom', [
   'emitter',
-  'value'
+  'value',
+  'step'
 ]);
 
 
@@ -1168,7 +1175,9 @@ export const MedImageZoom = /*@__PURE__*/ defineContainer<JSX.MedImageZoom>('med
   'marcaAguaSuperior',
   'marcaAguaInferior',
   'titulo',
-  'initialSlide'
+  'initialSlide',
+  'maxRatioDesktop',
+  'maxRatioMobile'
 ]);
 
 
@@ -1467,6 +1476,7 @@ export const TextAreaModal = /*@__PURE__*/ defineContainer<JSX.TextAreaModal>('t
 
 
 export const TpAccordion = /*@__PURE__*/ defineContainer<JSX.TpAccordion>('tp-accordion', [
+  'dsColor',
   'value',
   'disabled',
   'readonly',
@@ -1507,6 +1517,7 @@ export const TpInputContainer = /*@__PURE__*/ defineContainer<JSX.TpInputContain
   'feedback',
   'inverted',
   'hasButton',
+  'showPopoverWithDelay',
   'hasIcon'
 ]);
 
@@ -1515,6 +1526,17 @@ export const TpLoader = /*@__PURE__*/ defineContainer<JSX.TpLoader>('tp-loader',
   'dsColor',
   'fixed',
   'dsName'
+]);
+
+
+export const TpSelectDropdown = /*@__PURE__*/ defineContainer<JSX.TpSelectDropdown>('tp-select-dropdown', [
+  'color',
+  'name',
+  'value',
+  'options',
+  'placeholder',
+  'numeric',
+  'valueChange'
 ]);
 
 
