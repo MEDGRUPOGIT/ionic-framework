@@ -4,6 +4,10 @@ ion-popover.tp-popover {
   --bottom: auto;
   --right: auto;
 
+  .popover-arrow {
+    display: none !important;
+  }
+
   .popover-content {
     --background: hsl(var(--med-color-neutral-3));
     --border-radius: 0 0 8px 8px;

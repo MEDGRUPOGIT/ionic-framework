@@ -13,7 +13,7 @@ const Template = ({
   disabled,
   state,
   inverted,
-  "show-popover-with-delay": showPopoverWithDelay
+  "show-popover-with-delay": showPopoverWithDelay,
 }) => {
   const interfaceOpts = { cssClass: "tp-popover" };
 
@@ -171,8 +171,7 @@ Default.argTypes = {
   },
   showPopoverWithDelay: {
     control: { type: "boolean" },
-    description:
-      "Define um delay para o tempo de renderização do popover",
+    description: "Define um delay para o tempo de renderização do popover",
     defaultValue: false,
     table: {
       type: { summary: "boolean" },

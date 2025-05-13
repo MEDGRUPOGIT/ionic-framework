@@ -5,16 +5,16 @@ import {
   Prop,
   Element,
   Listen,
-  State
-} from '@stencil/core';
-import { MedColor } from '../../../../@templarios/types/color.type';
-import { generateMedColor } from '../../../../@templarios/utilities/color';
+  State,
+} from "@stencil/core";
+import { MedColor } from "../../../../@templarios/types/color.type";
+import { generateMedColor } from "../../../../@templarios/utilities/color";
 import { isPlatform } from "../../../../utils/platform";
 
 @Component({
-  tag: 'tp-input-container',
-  styleUrl: 'tp-input-container.scss',
-  scoped: true
+  tag: "tp-input-container",
+  styleUrl: "tp-input-container.scss",
+  scoped: true,
 })
 export class TpInputContainer {
   /**
@@ -28,11 +28,11 @@ export class TpInputContainer {
    */
   readonly selectAndPopoverDiffWidth: number = 2;
 
-   /**
+  /**
    * Tempo de renderização do popover
    */
 
-   timePopover: any;
+  timePopover: any;
 
   /**
    * Referência ao componente no DOM
@@ -64,7 +64,7 @@ export class TpInputContainer {
   /**
    * todo
    */
-  @Prop({ reflect: true }) dsName?: 'secondary';
+  @Prop({ reflect: true }) dsName?: "secondary";
 
   /**
    * todo
@@ -84,65 +84,64 @@ export class TpInputContainer {
   /**
    * todo
    */
-  @Prop({ reflect: true }) hasButton?: 'start' | 'end' | 'both';
+  @Prop({ reflect: true }) hasButton?: "start" | "end" | "both";
 
   /**
    * todo
    */
   @Prop({ reflect: true }) showPopoverWithDelay? = false;
 
-
   /**
    * todo
    */
-  @Prop({ reflect: true }) hasIcon?: 'start' | 'end' | 'both';
+  @Prop({ reflect: true }) hasIcon?: "start" | "end" | "both";
 
-  @Listen('click', { target: 'body' })
+  @Listen("click", { target: "body" })
   setClickTarget(e: MouseEvent) {
     if (this.disabled) return;
 
     this.clickTarget = e.target as Node;
   }
 
-  @Listen('click')
+  @Listen("click")
   catchSelectIconClick(e: MouseEvent) {
     const target = e.target as Node;
     const ionSelect = this.host.querySelector(
-      'ion-select'
+      "ion-select"
     ) as HTMLIonSelectElement;
 
     const shouldOpenOverlay =
       this.host.contains(target) &&
-      ionSelect.hasAttribute('interface') &&
-      (target.nodeName === 'ION-ICON' ||
-        target.nodeName === 'TP-INPUT-CONTAINER');
+      ionSelect.hasAttribute("interface") &&
+      (target.nodeName === "ION-ICON" ||
+        target.nodeName === "TP-INPUT-CONTAINER");
 
     if (shouldOpenOverlay) {
       ionSelect.open(e);
     }
 
-    if(this.showPopoverWithDelay) {
+    if (this.showPopoverWithDelay) {
       this.timeDisabledInputContainer();
     }
   }
 
-  @Listen('resize', { target: 'window' })
+  @Listen("resize", { target: "window" })
   setPopoverWidthOnResize() {
     if (!this.selectWithPopoverClicked) return;
 
     const popoverElement = document.querySelector(
-      '.select-popover'
+      ".select-popover"
     ) as HTMLElement;
 
     popoverElement?.style.setProperty(
-      '--width',
+      "--width",
       `${this.host.clientWidth + this.selectAndPopoverDiffWidth}px`
     );
 
     this.setPopoverPosition();
   }
 
-  @Listen('ionPopoverWillPresent', { target: 'body' })
+  @Listen("ionPopoverWillPresent", { target: "body" })
   setPopoverCharacteristics() {
     if (!this.host.contains(this.clickTarget)) return;
 
@@ -150,20 +149,20 @@ export class TpInputContainer {
     this.hostWidth = this.host.clientWidth + this.selectAndPopoverDiffWidth;
 
     const popoverElement = document.querySelector(
-      '.select-popover'
+      ".select-popover"
     ) as HTMLElement;
-    popoverElement?.style.setProperty('--width', `${this.hostWidth}px`);
+    popoverElement?.style.setProperty("--width", `${this.hostWidth}px`);
 
-    if (this.dsName === 'secondary') {
-      popoverElement.classList.add('tp-popover--secondary');
+    if (this.dsName === "secondary") {
+      popoverElement.classList.add("tp-popover--secondary");
     }
 
     // colors
     if (this.dsColor) {
-      popoverElement.setAttribute('ds-color', this.dsColor);
+      popoverElement.setAttribute("ds-color", this.dsColor);
     }
 
-    if (popoverElement.classList.contains('popover-bottom')) {
+    if (popoverElement.classList.contains("popover-bottom")) {
       this.inverted = true;
     }
 
@@ -172,34 +171,34 @@ export class TpInputContainer {
 
   // fix para conflito com popover API do chrome
   // pode remover depois de migração pro ionic 7
-  @Listen('ionPopoverDidPresent', { target: 'body' })
+  @Listen("ionPopoverDidPresent", { target: "body" })
   fixPopover() {
-    const popover = document.querySelector('ion-select-popover');
+    const popover = document.querySelector("ion-select-popover");
 
-    if (popover?.hasAttribute('popover')) {
-      popover.removeAttribute('popover');
+    if (popover?.hasAttribute("popover")) {
+      popover.removeAttribute("popover");
     }
   }
 
-  @Listen('ionPopoverWillDismiss', { target: 'body' })
+  @Listen("ionPopoverWillDismiss", { target: "body" })
   unsetClikedState() {
     this.selectWithPopoverClicked = false;
 
-    if(this.showPopoverWithDelay) {
+    if (this.showPopoverWithDelay) {
       this.timeDisabledInputContainer();
     }
   }
 
   componentDidLoad() {
     const ionSelect = this.host.querySelector(
-      'ION-SELECT'
+      "ION-SELECT"
     ) as HTMLIonSelectElement;
 
     if (ionSelect) {
       this.pointerOnSelect = true;
 
-      if (!ionSelect.hasAttribute('interface')) {
-        ionSelect.interfaceOptions = { cssClass: 'tp-hide' };
+      if (!ionSelect.hasAttribute("interface")) {
+        ionSelect.interfaceOptions = { cssClass: "tp-hide" };
       }
     }
   }
@@ -212,20 +211,20 @@ export class TpInputContainer {
 
   timeDisabledInputContainer() {
     const tpInputContainer = this.host;
-    const ionPopover = document.querySelector('ion-popover') as HTMLElement;
+    const ionPopover = document.querySelector("ion-popover") as HTMLElement;
 
-    tpInputContainer.style.pointerEvents = 'none';
+    tpInputContainer.style.pointerEvents = "none";
 
-    if(ionPopover) {
-      ionPopover.style.pointerEvents = 'none';
+    if (ionPopover) {
+      ionPopover.style.pointerEvents = "none";
     }
 
     this.timePopover = setTimeout(() => {
-      if(ionPopover) {
-        ionPopover.style.pointerEvents = 'auto';
+      if (ionPopover) {
+        ionPopover.style.pointerEvents = "auto";
       }
 
-      tpInputContainer.style.pointerEvents = 'auto';
+      tpInputContainer.style.pointerEvents = "auto";
     }, 450);
   }
 
@@ -235,41 +234,41 @@ export class TpInputContainer {
 
   setPopoverPosition() {
     const popoverElement = document.querySelector(
-      '.select-popover'
+      ".select-popover"
     ) as HTMLElement;
 
     const { top, bottom, left } = this.host.getBoundingClientRect();
-    const isIphone = isPlatform('iphone')
-    const isIpad = isPlatform('ipad')
+    const isIphone = isPlatform("iphone");
+    const isIpad = isPlatform("ipad");
 
     const isLandscape = this.isLandscape();
 
     if (this.inverted) {
-      popoverElement.classList.add('tp-popover--inverted');
+      popoverElement.classList.add("tp-popover--inverted");
 
-      popoverElement?.style.setProperty('--left', `${left}px`);
+      popoverElement?.style.setProperty("--left", `${left}px`);
 
-      if(isIphone) {
+      if (isIphone) {
         popoverElement?.style.setProperty(
-          '--bottom',
-          isLandscape ? `${window.innerHeight - top - 20}px` : `${window.innerHeight - top - 33}px`
+          "--bottom",
+          isLandscape
+            ? `${window.innerHeight - top - 20}px`
+            : `${window.innerHeight - top - 33}px`
         );
-      }
-      else if(isIpad) {
+      } else if (isIpad) {
         popoverElement?.style.setProperty(
-          '--bottom',
+          "--bottom",
           `${window.innerHeight - top - 23}px`
         );
-      }
-      else {
+      } else {
         popoverElement?.style.setProperty(
-          '--bottom',
+          "--bottom",
           `${window.innerHeight - top}px`
         );
       }
     } else {
-      popoverElement?.style.setProperty('--left', `${left + 1}px`);
-      popoverElement?.style.setProperty('--top', `${bottom}px`);
+      popoverElement?.style.setProperty("--left", `${left + 1}px`);
+      popoverElement?.style.setProperty("--top", `${bottom}px`);
     }
   }
 
@@ -283,28 +282,28 @@ export class TpInputContainer {
       disabled,
       feedback,
       hasButton,
-      hasIcon
+      hasIcon,
     } = this;
 
     return (
       <Host
         class={generateMedColor(dsColor, {
-          'tp-input-container': true,
-          'tp-input-container--with-select': pointerOnSelect,
+          "tp-input-container": true,
+          "tp-input-container--with-select": pointerOnSelect,
           [`tp-input-container--select-popover-clicked`]:
             selectWithPopoverClicked,
           [`tp-input-container--inverted`]: inverted,
-          'tp-input-container--disabled': disabled,
-          'tp-input-container--feedback': feedback,
+          "tp-input-container--disabled": disabled,
+          "tp-input-container--feedback": feedback,
           [`tp-input-container--${dsName}`]: dsName !== undefined,
           [`tp-input-container--has-button-${hasButton}`]:
             hasButton !== undefined,
-          [`tp-input-container--has-icon-${hasIcon}`]: hasIcon !== undefined
+          [`tp-input-container--has-icon-${hasIcon}`]: hasIcon !== undefined,
         })}
       >
-        <slot name='start'></slot>
+        <slot name="start"></slot>
         <slot></slot>
-        <slot name='end'></slot>
+        <slot name="end"></slot>
       </Host>
     );
   }
