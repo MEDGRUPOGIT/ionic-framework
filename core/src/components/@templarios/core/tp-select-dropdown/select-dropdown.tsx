@@ -53,6 +53,11 @@ export class TpSelectDropdown {
   @Prop({ reflect: true }) numeric = false;
 
   /**
+   * Define o estado disabled do componente.
+   */
+  @Prop({ reflect: true }) disabled = false;
+
+  /**
    * Evento emitido quando há mudança no valor do componente.
    */
   @Event() valueChange!: EventEmitter<string | number>;
@@ -103,14 +108,23 @@ export class TpSelectDropdown {
   }
 
   render() {
-    const { color, name, value, options, placeholder, open, selectedOption } =
-      this;
+    const {
+      color,
+      disabled,
+      name,
+      value,
+      options,
+      placeholder,
+      open,
+      selectedOption,
+    } = this;
 
     return (
       <Host
         class={generateMedColor(color, {
           "tp-select-dropdown": true,
           "tp-select-dropdown--open": open,
+          "tp-select-dropdown--disabled": disabled,
         })}
       >
         <div class="tp-select-dropdown__container">

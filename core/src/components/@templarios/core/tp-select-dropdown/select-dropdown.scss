@@ -167,3 +167,11 @@
   .tp-select-dropdown__header:hover {
   cursor: pointer;
 }
+
+//
+// state: disabled
+//
+:host(.tp-select-dropdown--disabled) {
+  pointer-events: none;
+  opacity: 0.4;
+}
